@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ajith Associates – Containers, Fabrication & Industrial Services | Coimbatore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --steel: #1a1f2e;
+    --rust: #c0392b;
+    --rust-light: #e74c3c;
+    --amber: #f39c12;
+    --silver: #bdc3c7;
+    --light: #ecf0f1;
+    --white: #ffffff;
+    --dark: #0d1117;
+    --mid: #2c3e50;
+    --accent: #e67e22;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-cond: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+ 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: var(--font-body);
+    background: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+  }
+ 
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+ 
+  /* ─── HEADER / NAV ─── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(13,17,23,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--rust);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 72px;
+  }
+ 
+  .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+ 
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: var(--rust);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: white;
+    flex-shrink: 0;
+  }
+ 
+  .logo-text { line-height: 1; }
+  .logo-text .brand {
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: var(--white);
+  }
+  .logo-text .sub {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--rust);
+    text-transform: uppercase;
+  }
+ 
+  nav { display: flex; gap: 32px; align-items: center; }
+  nav a {
+    font-family: var(--font-cond);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--silver);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--rust); }
+ 
+  .nav-cta {
+    background: var(--rust);
+    color: white !important;
+    padding: 10px 22px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    font-weight: 700 !important;
+  }
+  .nav-cta:hover { background: var(--rust-light); color: white !important; }
+ 
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+ 
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(192,57,43,0.15) 0%, transparent 50%),
+      linear-gradient(to right, rgba(13,17,23,0.98) 0%, rgba(13,17,23,0.6) 60%, rgba(13,17,23,0.3) 100%),
+      url('https://5.imimg.com/data5/NSDMERP/Location/2025/10/554696666/QH/VZ/KH/4754020/4754020-location-1761290897008-1000x1000.png') center/cover no-repeat;
+  }
+ 
+  /* Geometric accent lines */
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .hero-lines::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border: 1px solid rgba(192,57,43,0.2);
+    transform: rotate(45deg);
+    animation: slowSpin 30s linear infinite;
+  }
+  .hero-lines::after {
+    content: '';
+    position: absolute;
+    top: 50px; right: 50px;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(243,156,18,0.15);
+    transform: rotate(45deg);
+    animation: slowSpin 20s linear infinite reverse;
+  }
+ 
+  @keyframes slowSpin { to { transform: rotate(405deg); } }
+ 
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 60px;
+    animation: fadeUp 1s ease both;
+  }
+ 
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+ 
+  .hero-tag {
+    display: inline-block;
+    font-family: var(--font-cond);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding: 6px 16px;
+    border-left: 3px solid var(--amber);
+    background: rgba(243,156,18,0.1);
+  }
+ 
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 110px);
+    line-height: 0.9;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+ 
+  .hero h1 span { color: var(--rust); }
+ 
+  .hero-desc {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--silver);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+ 
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+ 
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: var(--rust);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-cond);
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--silver);
+    text-transform: uppercase;
+  }
+ 
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+ 
+  .btn-primary {
+    display: inline-block;
+    background: var(--rust);
+    color: white;
+    font-family: var(--font-cond);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 36px;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--rust-light); transform: translateX(4px); }
+ 
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--light);
+    font-family: var(--font-cond);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 34px;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+ 
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px; left: 60px;
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--font-cond);
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--silver);
+    text-transform: uppercase;
+    animation: fadeUp 1.5s ease both;
+  }
+  .scroll-line {
+    width: 60px; height: 1px;
+    background: var(--rust);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--white);
+    animation: lineSlide 2s ease infinite;
+  }
+  @keyframes lineSlide { to { left: 200%; } }
+ 
+  /* ─── SECTION BASE ─── */
+  section { padding: 100px 0; }
+ 
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+ 
+  .section-label {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 2px;
+    background: var(--rust);
+  }
+ 
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 72px);
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+ 
+  .section-title span { color: var(--rust); }
+ 
+  .section-desc {
+    font-size: 16px;
+    color: var(--silver);
+    max-width: 600px;
+    line-height: 1.8;
+  }
+ 
+  /* ─── MARQUEE TICKER ─── */
+  .ticker-wrap {
+    background: var(--rust);
+    overflow: hidden;
+    padding: 14px 0;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    gap: 0;
+    animation: ticker 30s linear infinite;
+  }
+  .ticker-item {
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: white;
+    padding: 0 32px;
+  }
+  .ticker-item::after {
+    content: '◆';
+    margin-left: 32px;
+    opacity: 0.5;
+  }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+ 
+  /* ─── SERVICES ─── */
+  #services { background: var(--steel); position: relative; overflow: hidden; }
+ 
+  #services::before {
+    content: 'SERVICES';
+    position: absolute;
+    top: -20px; right: -20px;
+    font-family: var(--font-display);
+    font-size: 200px;
+    color: rgba(255,255,255,0.02);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: 10px;
+  }
+ 
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 60px;
+  }
+ 
+  .service-card {
+    background: var(--dark);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 0;
+    background: var(--rust);
+    transition: height 0.4s ease;
+  }
+  .service-card:hover::before { height: 100%; }
+  .service-card:hover { transform: translateY(-4px); }
+ 
+  .service-icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+    display: block;
+    filter: grayscale(0.3);
+  }
+ 
+  .service-num {
+    font-family: var(--font-display);
+    font-size: 72px;
+    color: rgba(192,57,43,0.1);
+    position: absolute;
+    top: 20px; right: 24px;
+    line-height: 1;
+    pointer-events: none;
+  }
+ 
+  .service-card h3 {
+    font-family: var(--font-cond);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+ 
+  .service-card p {
+    font-size: 14px;
+    color: var(--silver);
+    line-height: 1.7;
+  }
+ 
+  .service-tags {
+    margin-top: 16px;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .tag {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--rust);
+    border: 1px solid rgba(192,57,43,0.4);
+    padding: 3px 10px;
+    text-transform: uppercase;
+  }
+ 
+  /* ─── PRODUCTS ─── */
+  #products { background: var(--dark); }
+ 
+  .products-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: end;
+  }
+ 
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+ 
+  @media (max-width: 1000px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+ 
+  .product-card {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--steel);
+  }
+ 
+  .product-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.4s;
+    filter: grayscale(0.4) contrast(1.1);
+  }
+  .product-card:hover img { transform: scale(1.08); filter: grayscale(0) contrast(1.1); }
+ 
+  .product-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,17,23,0.95) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    transition: background 0.3s;
+  }
+  .product-card:hover .product-card-overlay {
+    background: linear-gradient(to top, rgba(192,57,43,0.85) 0%, transparent 70%);
+  }
+ 
+  .product-card-overlay h4 {
+    font-family: var(--font-cond);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+ 
+  .product-card.featured {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+  }
+ 
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--steel);
+    position: relative;
+  }
+ 
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+ 
+  .about-img-wrap {
+    position: relative;
+  }
+ 
+  .about-img-main {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    filter: grayscale(0.2) contrast(1.1);
+  }
+ 
+  .about-img-badge {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    background: var(--rust);
+    padding: 24px 28px;
+    text-align: center;
+  }
+  .about-img-badge .num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    color: white;
+    line-height: 1;
+    display: block;
+  }
+  .about-img-badge .txt {
+    font-family: var(--font-cond);
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+  }
+ 
+  .about-img-accent {
+    position: absolute;
+    top: -12px; left: -12px;
+    width: 80px; height: 80px;
+    border-top: 4px solid var(--amber);
+    border-left: 4px solid var(--amber);
+  }
+ 
+  .about-content .section-desc { margin-bottom: 32px; }
+ 
+  .about-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+ 
+  .fact-item {
+    background: var(--dark);
+    padding: 20px;
+    border-left: 3px solid var(--rust);
+  }
+ 
+  .fact-item .fact-label {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--silver);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .fact-item .fact-value {
+    font-family: var(--font-cond);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+  }
+ 
+  /* ─── WHY US ─── */
+  #why {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  #why::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, transparent, var(--rust), transparent);
+  }
+ 
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+    margin-top: 60px;
+  }
+ 
+  .why-item {
+    background: var(--dark);
+    padding: 48px 40px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .why-item:hover { background: rgba(192,57,43,0.08); }
+ 
+  .why-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 40px; right: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.05);
+  }
+ 
+  .why-number {
+    font-family: var(--font-display);
+    font-size: 80px;
+    color: rgba(192,57,43,0.15);
+    line-height: 0.8;
+    margin-bottom: 24px;
+  }
+ 
+  .why-item h3 {
+    font-family: var(--font-cond);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+ 
+  .why-item p { font-size: 14px; color: var(--silver); line-height: 1.7; }
+ 
+  /* ─── GALLERY ─── */
+  #gallery { background: var(--steel); }
+ 
+  .gallery-grid {
+    columns: 4;
+    gap: 8px;
+    margin-top: 60px;
+  }
+ 
+  @media (max-width: 900px) {
+    .gallery-grid { columns: 2; }
+  }
+ 
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 8px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    filter: grayscale(0.3) contrast(1.1);
+    transition: filter 0.4s, transform 0.4s;
+  }
+  .gallery-item:hover img { filter: grayscale(0); transform: scale(1.03); }
+ 
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(192,57,43,0);
+    transition: background 0.4s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .gallery-item:hover .gallery-item-overlay { background: rgba(192,57,43,0.25); }
+ 
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  #contact::before {
+    content: '';
+    position: absolute;
+    bottom: -200px; right: -200px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,57,43,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+ 
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+ 
+  .contact-info { }
+ 
+  .contact-info .section-desc { margin-bottom: 40px; }
+ 
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+ 
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--steel);
+    padding: 20px 24px;
+    border-left: 4px solid var(--rust);
+    transition: transform 0.2s;
+  }
+  .contact-card:hover { transform: translateX(6px); }
+ 
+  .contact-card-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+ 
+  .contact-card-label {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--silver);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+ 
+  .contact-card-value {
+    font-family: var(--font-cond);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+  }
+ 
+  .contact-form-wrap { }
+ 
+  .contact-form {
+    display: grid;
+    gap: 16px;
+  }
+ 
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+ 
+  .form-group label {
+    display: block;
+    font-family: var(--font-cond);
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--silver);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+ 
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--steel);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid rgba(192,57,43,0.5);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 15px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    resize: vertical;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--rust);
+    background: rgba(192,57,43,0.05);
+  }
+  .form-group select option { background: var(--steel); }
+ 
+  .form-submit {
+    background: var(--rust);
+    color: white;
+    font-family: var(--font-cond);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: none;
+    padding: 18px 36px;
+    cursor: pointer;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: background 0.25s, transform 0.2s;
+    width: 100%;
+  }
+  .form-submit:hover { background: var(--rust-light); transform: translateX(4px); }
+ 
+  /* ─── FOOTER ─── */
+  footer {
+    background: #080b11;
+    border-top: 2px solid rgba(192,57,43,0.3);
+    padding: 60px 0 30px;
+  }
+ 
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+ 
+  .footer-brand .logo-text .brand { font-size: 28px; }
+  .footer-brand p {
+    font-size: 14px;
+    color: var(--silver);
+    line-height: 1.7;
+    margin-top: 16px;
+    max-width: 280px;
+  }
+ 
+  .footer-col h4 {
+    font-family: var(--font-cond);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+ 
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a {
+    font-size: 14px;
+    color: var(--silver);
+    text-decoration: none;
+    transition: color 0.2s, padding-left 0.2s;
+    display: block;
+  }
+  .footer-col a:hover { color: var(--white); padding-left: 6px; }
+ 
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+ 
+  .footer-bottom p {
+    font-size: 13px;
+    color: rgba(189,195,199,0.5);
+    font-family: var(--font-cond);
+    letter-spacing: 1px;
+  }
+ 
+  .footer-badges {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .badge {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--rust);
+    border: 1px solid rgba(192,57,43,0.4);
+    padding: 4px 12px;
+    text-transform: uppercase;
+  }
+ 
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    header { padding: 0 20px; }
+    nav { display: none; }
+    .hero-content { padding: 0 24px; }
+    .hero-stats { gap: 24px; }
+    .products-header { grid-template-columns: 1fr; gap: 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-img-badge { bottom: -12px; right: -12px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .scroll-hint { display: none; }
+  }
+ 
+  /* Mobile hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .hamburger span {
+    width: 26px; height: 2px;
+    background: var(--light);
+    transition: 0.3s;
+  }
+  @media (max-width: 900px) {
+    .hamburger { display: flex; }
+  }
+ 
+  /* ─── FLOATING CTA ─── */
+  .floating-cta {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+ 
+  .float-btn {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--rust);
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-cond);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    box-shadow: 0 8px 24px rgba(192,57,43,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .float-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(192,57,43,0.55); }
+ 
+  .float-btn.whatsapp { background: #25d366; box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+  .float-btn.whatsapp:hover { box-shadow: 0 12px 32px rgba(37,211,102,0.5); }
+ 
+  /* reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+ 
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="logo-block">
+    <div class="logo-icon">AA</div>
+    <div class="logo-text">
+      <div class="brand">AJITH ASSOCIATES</div>
+      <div class="sub">Since 1985 · Coimbatore</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact" class="nav-cta">Get Quote</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+ 
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Established 1985 · Coimbatore, Tamil Nadu</div>
+    <h1>BUILT FOR <span>HEAVY</span><br>INDUSTRY</h1>
+    <p class="hero-desc">Containers, Mobile Cranes, Fabrication, Plasma Cutting & Shot Blasting — precision-engineered solutions for industrial India since 1985.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Client Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Skilled Team</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">PAN</div>
+        <div class="stat-label">India Delivery</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Request a Quote</a>
+      <a href="#products" class="btn-outline">Explore Products</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll to Explore
+  </div>
+</section>
+ 
+<!-- ─── TICKER ─── -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">Storage Containers</span>
+    <span class="ticker-item">Mobile Cranes for Hire</span>
+    <span class="ticker-item">MS & SS Fabrication</span>
+    <span class="ticker-item">Plasma Cutting</span>
+    <span class="ticker-item">Shot Blasting</span>
+    <span class="ticker-item">Bunk Houses</span>
+    <span class="ticker-item">Reefer Containers</span>
+    <span class="ticker-item">Copper Slag</span>
+    <span class="ticker-item">Glass Beads</span>
+    <span class="ticker-item">Container Conversion</span>
+    <span class="ticker-item">Storage Containers</span>
+    <span class="ticker-item">Mobile Cranes for Hire</span>
+    <span class="ticker-item">MS & SS Fabrication</span>
+    <span class="ticker-item">Plasma Cutting</span>
+    <span class="ticker-item">Shot Blasting</span>
+    <span class="ticker-item">Bunk Houses</span>
+    <span class="ticker-item">Reefer Containers</span>
+    <span class="ticker-item">Copper Slag</span>
+    <span class="ticker-item">Glass Beads</span>
+    <span class="ticker-item">Container Conversion</span>
+  </div>
+</div>
+ 
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <div class="section-title">CORE <span>SERVICES</span></div>
+    <p class="section-desc">From heavy fabrication to precision plasma cutting, we offer an end-to-end industrial solutions ecosystem.</p>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <div class="service-num">01</div>
+        <h3>Fabrication Works</h3>
+        <p>MS & SS heavy fabrication, civil, structural, and sheet metal work to international standards using advanced plate bending and hydraulic press machines.</p>
+        <div class="service-tags">
+          <span class="tag">MS Fabrication</span>
+          <span class="tag">SS Fabrication</span>
+          <span class="tag">Heavy Fabrication</span>
+          <span class="tag">Storage Tanks</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <div class="service-num">02</div>
+        <h3>Plasma Cutting</h3>
+        <p>CNC plasma cutting services with high-precision torch technology for flawless, clean cuts on all metal types and thicknesses.</p>
+        <div class="service-tags">
+          <span class="tag">CNC Plasma</span>
+          <span class="tag">High Precision</span>
+          <span class="tag">All Metals</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💥</span>
+        <div class="service-num">03</div>
+        <h3>Shot & Bead Blasting</h3>
+        <p>Complete surface preparation — shot blasting, glass bead blasting, sand blasting — for superior coating adhesion and finish quality.</p>
+        <div class="service-tags">
+          <span class="tag">Shot Blasting</span>
+          <span class="tag">Glass Bead</span>
+          <span class="tag">Sand Blasting</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🚢</span>
+        <div class="service-num">04</div>
+        <h3>Container Supply</h3>
+        <p>Storage containers, lorry containers, box containers, refrigerator (reefer) containers, offshore containers — new and used, fully customizable.</p>
+        <div class="service-tags">
+          <span class="tag">Storage</span>
+          <span class="tag">Reefer</span>
+          <span class="tag">Offshore</span>
+          <span class="tag">Conversion</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <div class="service-num">05</div>
+        <h3>Portable Bunk Houses</h3>
+        <p>Prefabricated bunk house cabins for site offices, kitchens, bathrooms, and living quarters — sturdy steel construction, quick installation.</p>
+        <div class="service-tags">
+          <span class="tag">Office Cabin</span>
+          <span class="tag">Kitchen</span>
+          <span class="tag">Living</span>
+          <span class="tag">Prefab</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <div class="service-num">06</div>
+        <h3>Mobile Crane Hire</h3>
+        <p>Hydraulic mobile cranes available for hire across Tamil Nadu — ideal for heavy lifts, construction, and industrial site operations.</p>
+        <div class="service-tags">
+          <span class="tag">Hydraulic</span>
+          <span class="tag">On-Hire</span>
+          <span class="tag">Heavy Lift</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ─── PRODUCTS ─── -->
+<section id="products">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <div class="section-label">Our Range</div>
+        <div class="section-title">PRODUCTS<br><span>GALLERY</span></div>
+      </div>
+      <div>
+        <p class="section-desc">Every product is manufactured with high-grade raw material, quality-tested, and delivered within 3–10 days across India by cargo or road.</p>
+      </div>
+    </div>
+    <div class="products-grid reveal">
+      <div class="product-card featured">
+        <img src="https://2.imimg.com/data2/PX/VV/MY-4754020/used-shipping-containers-125x125.jpg" alt="Storage Containers" style="object-position:center;" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Industrial Storage Containers</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://2.imimg.com/data2/EU/MC/MY-4754020/refrigerator-container-125x125.jpg" alt="Reefer Container" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Reefer / Refrigerator Containers</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://2.imimg.com/data2/UA/VH/MY-4754020/bunk-house-125x125.jpg" alt="Bunk House" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Living Bunk Houses</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://2.imimg.com/data2/IW/CT/MY-4754020/heavy-fabrication-work-125x125.jpg" alt="Fabrication" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Heavy Fabrication Work</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://2.imimg.com/data2/VF/DI/MY-4754020/shot-blasting-125x125.jpg" alt="Shot Blasting" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Shot Blasting Services</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://2.imimg.com/data2/RB/YF/MY-4754020/plasma-cutting-125x125.jpg" alt="Plasma Cutting" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Plasma Cutting</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://2.imimg.com/data2/GA/VS/MY-4754020/lorry-containers-125x125.jpg" alt="Lorry Containers" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Lorry Containers</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://2.imimg.com/data2/DT/LH/MY-4754020/bunk-house-interiors-125x125.jpg" alt="Bunk House Interior" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Bunk House Interiors</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://3.imimg.com/data3/EW/LY/MY-4754020/guyed-tower-fabrication-work-125x125.jpeg" alt="Tower Fabrication" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Tower Fabrication</h4>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://3.imimg.com/data3/KB/UE/MY-4754020/offshore-reefer-containers-125x125.png" alt="Offshore Reefer" loading="lazy">
+        <div class="product-card-overlay">
+          <h4>Offshore Reefer Containers</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-accent"></div>
+        <img class="about-img-main" src="https://5.imimg.com/data5/NSDMERP/Location/2025/10/554696666/QH/VZ/KH/4754020/4754020-location-1761290897008-1000x1000.png" alt="Ajith Associates Facility" loading="lazy">
+        <div class="about-img-badge">
+          <span class="num">40+</span>
+          <span class="txt">Years of Trust</span>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">Our Story</div>
+        <div class="section-title">AJITH<br><span>ASSOCIATES</span></div>
+        <p class="section-desc">Founded in 1985 in Coimbatore, we have built a reputation as Tamil Nadu's trusted partner for industrial containers, heavy fabrication, and surface treatment services. Under the leadership of Mr. A. Kumar, we've grown to a team of 26–50 skilled professionals serving clients across India with a turnover of ₹1.5–5 Cr.</p>
+        <div class="about-facts">
+          <div class="fact-item">
+            <div class="fact-label">CEO</div>
+            <div class="fact-value">A. Kumar</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Established</div>
+            <div class="fact-value">1985</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Location</div>
+            <div class="fact-value">Coimbatore 641050</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Delivery</div>
+            <div class="fact-value">3–10 Days</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Employees</div>
+            <div class="fact-value">26–50 People</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-label">Turnover</div>
+            <div class="fact-value">₹1.5–5 Cr</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary">Work With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ─── WHY US ─── -->
+<section id="why">
+  <div class="container">
+    <div class="section-label">Why Choose Us</div>
+    <div class="section-title">OUR <span>ADVANTAGE</span></div>
+    <div class="why-grid reveal">
+      <div class="why-item">
+        <div class="why-number">01</div>
+        <h3>Quality Assured</h3>
+        <p>Every product and service is quality-tested before delivery. We maintain strict quality control measures and testing facilities to ensure international standards.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">02</div>
+        <h3>Experienced R&D</h3>
+        <p>Our in-house R&D team drives continuous innovation using ultra-modern heavy capacity plate bending, CNC plasma cutting, and hydraulic press machines.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">03</div>
+        <h3>Timely Delivery</h3>
+        <p>We commit to 3–10 day delivery timelines across India via road and cargo, backed by strong logistics planning and production capacity.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">04</div>
+        <h3>After-Sales Support</h3>
+        <p>Installation training, onsite support, operational training, and user manuals — we stay with you long after the sale.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">05</div>
+        <h3>Market-Leading Prices</h3>
+        <p>Transparent pricing, flexible payment modes (Cash, Cheque, DD), and customized packaging make us the most competitive choice in the market.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-number">06</div>
+        <h3>40 Years of Trust</h3>
+        <p>With a 5.0-star rating and 83% response rate, our long-term client relationships speak louder than any certificate. We've been building trust since 1985.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ─── GALLERY ─── -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-label">Inside Ajith Associates</div>
+    <div class="section-title">FACILITY <span>PHOTOS</span></div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2025/10/554696666/QH/VZ/KH/4754020/4754020-location-1761290897008-1000x1000.png" alt="Ajith Associates Location" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2025/10/554696600/DS/RF/IG/4754020/4754020-location-1761290882941-1000x1000.png" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2025/7/529638857/EF/EK/ME/4754020/4754020-location-1753176647099-1000x1000.png" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2025/7/529638584/QM/VI/WT/4754020/4754020-location-1753176613940-1000x1000.png" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2025/7/529637750/GS/QO/IK/4754020/4754020-location-1753176516305-1000x1000.png" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Board/2025/10/554697276/HP/IA/JO/4754020/4754020-board-1761290978013-1000x1000.png" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2022/9/FX/RL/BO/4754020/4754020-location-1663233736436-1000x1000.jpg" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2023/6/316871216/BG/BW/ZP/4754020/4754020-location-1686824062971-1000x1000.jpg" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Board/2022/9/ZJ/AT/QB/4754020/4754020-board-1663233704411-1000x1000.jpg" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2025/6/517955278/EA/OI/TZ/4754020/4754020-location-1749635341339-1000x1000.png" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Location/2023/1/WO/ER/JX/4754020/4754020-location-1672821973866-1000x1000.jpg" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://5.imimg.com/data5/NSDMERP/Board/2023/6/316871086/TF/YU/LE/4754020/4754020-board-1686824050094-1000x1000.jpg" alt="" loading="lazy">
+        <div class="gallery-item-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-label">Get in Touch</div>
+        <div class="section-title">REQUEST<br><span>A QUOTE</span></div>
+        <p class="section-desc">Ready to discuss your industrial requirements? Contact us and our team will respond within 24 hours with a competitive quote.</p>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div>
+              <div class="contact-card-label">Phone / WhatsApp</div>
+              <div class="contact-card-value">+91 80478 06795</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">📍</div>
+            <div>
+              <div class="contact-card-label">Address</div>
+              <div class="contact-card-value">Coimbatore – 641050, Tamil Nadu</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">⏱️</div>
+            <div>
+              <div class="contact-card-label">Delivery Time</div>
+              <div class="contact-card-value">3 to 10 Business Days</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">💳</div>
+            <div>
+              <div class="contact-card-label">Payment Modes</div>
+              <div class="contact-card-value">Cash · Cheque · DD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name *</label>
+              <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="you@company.com">
+          </div>
+          <div class="form-group">
+            <label>Product / Service Required *</label>
+            <select required>
+              <option value="" disabled selected>Select a Category</option>
+              <option>Storage Containers</option>
+              <option>Refrigerator / Reefer Containers</option>
+              <option>Mobile Crane Hire</option>
+              <option>MS / SS Fabrication Work</option>
+              <option>Plasma Cutting Services</option>
+              <option>Shot / Bead Blasting Services</option>
+              <option>Portable Bunk Houses</option>
+              <option>Container Conversion</option>
+              <option>Other / Multiple</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Requirements</label>
+            <textarea rows="4" placeholder="Describe your requirement, quantity, dimensions, etc."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-block">
+          <div class="logo-icon">AA</div>
+          <div class="logo-text">
+            <div class="brand">AJITH ASSOCIATES</div>
+            <div class="sub">Since 1985 · Coimbatore</div>
+          </div>
+        </div>
+        <p>Your trusted partner for industrial containers, heavy fabrication, plasma cutting, shot blasting, and mobile cranes across India.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Storage Containers</a></li>
+          <li><a href="#products">Reefer Containers</a></li>
+          <li><a href="#products">Portable Bunk Houses</a></li>
+          <li><a href="#products">Mobile Cranes</a></li>
+          <li><a href="#products">Copper Slag & Glass Beads</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">MS & SS Fabrication</a></li>
+          <li><a href="#services">Plasma Cutting</a></li>
+          <li><a href="#services">Shot Blasting</a></li>
+          <li><a href="#services">Glass Bead Blasting</a></li>
+          <li><a href="#services">Container Conversion</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="tel:+918047806795">+91 80478 06795</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Ajith Associates · Coimbatore, Tamil Nadu · GST Registered</p>
+      <div class="footer-badges">
+        <span class="badge">5★ Rated</span>
+        <span class="badge">GST Certified</span>
+        <span class="badge">Since 1985</span>
+        <span class="badge">PAN India</span>
+      </div>
+    </div>
+  </div>
+</footer>
+ 
+<!-- ─── FLOATING CTA ─── -->
+<div class="floating-cta">
+  <a href="https://wa.me/918047806795" target="_blank" class="float-btn whatsapp">
+    💬 WhatsApp Us
+  </a>
+  <a href="tel:+918047806795" class="float-btn">
+    📞 Call Now
+  </a>
+</div>
+ 
+<script>
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) { el.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+ 
+  // Form handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Enquiry Sent! We\'ll contact you soon.';
+    btn.style.background = '#27ae60';
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 4000);
+  }
+ 
+  // Mobile menu toggle (simple scroll)
+  function toggleMenu(btn) {
+    const anchors = ['#services','#products','#about','#gallery','#contact'];
+    // Simple: just scroll to services
+    document.querySelector('#services').scrollIntoView({behavior:'smooth'});
+  }
+ 
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
